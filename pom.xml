@@ -1,12 +1,23 @@
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- application info -->
     <groupId>com.github.davids13</groupId>
     <artifactId>where-is-my-pet</artifactId>
-    <packaging>war</packaging>
+    <!-- maven parent module -->
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+
+    <!-- modules -->
+    <modules>
+        <module>where-is-my-pet-application</module>
+    </modules>
+
     <name>where-is-my-pet Maven Webapp</name>
+    <description>Project dedicate for lost pets</description>
     <url>http://maven.apache.org</url>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
