@@ -5,28 +5,65 @@
     <!-- application info -->
     <groupId>com.github.davids13</groupId>
     <artifactId>where-is-my-pet</artifactId>
-    <!-- maven parent module -->
+    <version>1.0.0-SNAPSHOT</version>
+    <!-- this pom reference marked as maven parent module -->
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <name>where-is-my-pet</name>
+    <description>A project dedicated for lost pets</description>
+    <url>https://github.com/davids13</url>
 
     <!-- modules -->
     <modules>
         <module>where-is-my-pet-application</module>
     </modules>
 
-    <name>where-is-my-pet Maven Webapp</name>
-    <description>Project dedicate for lost pets</description>
-    <url>http://maven.apache.org</url>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
 
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
+        <!-- jakarta ee api specification -->
+        <jakarta.ee.version>10.0.0</jakarta.ee.version>
+        <!-- jpa implementation hibernate -->
+        <hibernate.persistence.version>5.6.11.Final</hibernate.persistence.version>
+        <!-- hibernate helper -->
+        <glassfish.jaxb.version>4.0.1</glassfish.jaxb.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- jakarta ee api specification -->
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-web-api</artifactId>
+                <version>${jakarta.ee.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- jpa implementation hibernate -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core-jakarta</artifactId>
+                <version>${hibernate.persistence.version}</version>
+            </dependency>
+            <!-- hibernate helper -->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>${glassfish.jaxb.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <build>
         <finalName>where-is-my-pet</finalName>
+        <plugins>
+            <!-- to generate WAR -->
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+            </plugin>
+        </plugins>
     </build>
 </project>

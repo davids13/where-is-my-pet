@@ -1,9 +1,13 @@
 package entity;
 
 import commons.jpa.AbstractEntityModel;
+import jakarta.persistence.Basic;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.NamedQuery;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -11,10 +15,18 @@ import jakarta.persistence.Table;
 //@NamedQuery()
 public class Pet extends AbstractEntityModel {
 
+    @Column(name = "PET_NAME")
     private String petName;
+    @Column(name = "PET_DESCRIPTION")
     private String petDescription;
-    @Column(name = "owner_id")
-    private Long ownerId;
+    @Column(name = "PET_PICTURE")
+    @Lob
+    @Basic(fetch = FetchType.LAZY)
+    private byte[] petPicture;
+    // the many has the foreign key
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
 
     public String getPetName() {
         return petName;
@@ -32,11 +44,11 @@ public class Pet extends AbstractEntityModel {
         this.petDescription = petDescription;
     }
 
-    public Long getOwnerId() {
-        return ownerId;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setOwnerId(Long ownerId) {
-        this.ownerId = ownerId;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }

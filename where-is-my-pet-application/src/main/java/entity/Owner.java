@@ -19,8 +19,8 @@ public class Owner extends AbstractEntityModel {
     private String email;
     private String number;
     /* one-to-many relationship: owner can have multiple pets but every pet should belong to one owner */
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JoinColumn(name = "owner_id", referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "owner") // mappedBy to enable bidirectional
+    @JoinColumn(name = "owner_fk", referencedColumnName = "id")
     Set<Pet> pets = new HashSet<Pet>();
 
     public String getName() {

@@ -1,1 +1,8 @@
-.idea/*
+# Intellij
+.idea/
+*.iml
+*.iws
+where-is-my-pet-application/target/
+
+# postgres
+database/*
