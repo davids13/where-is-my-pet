@@ -13,6 +13,6 @@ This project is to provide a platform for owners register their lovely lost pets
 ### How to
 
 ### Links
-    - github link
+    - https://github.com/davids13/where-is-my-pet
 
 
