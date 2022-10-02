@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "22fe1e3a-e26d-47c3-93c8-1304b3281b60",
+		"name": "Where is my pet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4489283"
+	},
+	"item": [
+		{
+			"name": "Pets (200)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://{{baseURL}}/{{api_version}}/pets",
+					"protocol": "http",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"{{api_version}}",
+						"pets"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "api_version",
+			"value": "v1"
+		}
+	]
+}
