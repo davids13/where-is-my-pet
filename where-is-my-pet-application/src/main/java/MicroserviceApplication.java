@@ -6,4 +6,19 @@ import jakarta.ws.rs.core.Application;
 @ApplicationScoped
 public class MicroserviceApplication extends Application {
     // add provider classes here
+
+    /*
+    TODO:
+        - requests as async
+        - cache
+        - health
+        - esi
+        - request by xml (java ee zuka)
+        - implement photo
+        - dto (to not send gender)
+        - websockets (java ee zuka)
+        - create a auth
+        - create crud java ee 8 book
+        - add metrics with microprofile
+     */
 }

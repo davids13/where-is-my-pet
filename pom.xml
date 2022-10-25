@@ -6,11 +6,11 @@
     <groupId>com.github.davids13</groupId>
     <artifactId>where-is-my-pet</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <!-- this pom reference marked as maven parent module -->
+    <!-- this type package pom marked this pom.xml as maven parent module -->
     <packaging>pom</packaging>
-    <name>where-is-my-pet</name>
+    <name>where-is-my-pet :: Root</name>
     <description>A project dedicated for lost pets</description>
-    <url>https://github.com/davids13</url>
+    <url>https://github.com/davids13/where-is-my-pet</url>
 
     <!-- modules -->
     <modules>
@@ -24,9 +24,11 @@
         <!-- jakarta ee api specification -->
         <jakarta.ee.version>10.0.0</jakarta.ee.version>
         <!-- jpa implementation hibernate -->
-        <hibernate.persistence.version>5.6.11.Final</hibernate.persistence.version>
+        <hibernate.version>5.6.11.Final</hibernate.version>
         <!-- hibernate helper -->
         <glassfish.jaxb.version>4.0.1</glassfish.jaxb.version>
+        <!-- microprofile -->
+        <microprofile.version>4.0.1</microprofile.version>
     </properties>
 
     <dependencyManagement>
@@ -43,13 +45,22 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core-jakarta</artifactId>
-                <version>${hibernate.persistence.version}</version>
+                <version>${hibernate.version}</version>
             </dependency>
             <!-- hibernate helper -->
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
                 <version>${glassfish.jaxb.version}</version>
+            </dependency>
+
+            <!-- microprofile -->
+            <dependency>
+                <groupId>org.eclipse.microprofile</groupId>
+                <artifactId>microprofile</artifactId>
+                <version>${microprofile.version}</version>
+                <type>pom</type>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -58,7 +69,6 @@
         <finalName>where-is-my-pet</finalName>
         <plugins>
             <!-- to generate WAR -->
-            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
