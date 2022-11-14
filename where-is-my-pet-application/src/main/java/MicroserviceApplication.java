@@ -10,15 +10,18 @@ public class MicroserviceApplication extends Application {
     /*
     TODO:
         - requests as async
-        - cache
-        - health
+        - cache (google guava lib)
         - esi
         - request by xml (java ee zuka)
         - implement photo
         - dto (to not send gender)
         - websockets (java ee zuka)
-        - create a auth
+        - create a auth (jwt)
         - create crud java ee 8 book
-        - add metrics with microprofile
+        - add metrics with microprofile health
+        - add cicd
+        - terraform scripts
+        - Azure vm
+        - wiremock
      */
 }

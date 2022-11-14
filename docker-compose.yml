@@ -1,10 +1,9 @@
 version: "3.8"
 
 services:
-  db:
-    container_name: db
+  database:
+    container_name: postgres
     image: postgres:15rc1-alpine3.16
-    restart: always
     ports:
       - "5432:5432"
     env_file:
@@ -14,7 +13,7 @@ services:
     networks:
       - application
   application:
-    container_name: where-is-my-pet
+    container_name: microservice
     command: [ "--sslport", "8181" ]
     ports:
       - "4848:4848" # HTTPS admin listener
@@ -25,7 +24,7 @@ services:
     networks:
       - application
     depends_on:
-      - db
+      - database
 
 networks:
   application:
