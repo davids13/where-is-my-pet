@@ -4,7 +4,7 @@
 This project is to provide a platform for owners register their lovely lost pets
 
 #### Techs
-    - Java EE Jakarta
+    - Java Jakarta EE
     - Postgres
     - Wiremock
     - React
