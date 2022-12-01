@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- reference of parent module -->
+    <parent>
+        <artifactId>where-is-my-pet</artifactId>
+        <groupId>com.github.davids13</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <!-- application info -->
+    <artifactId>where-is-my-pet-it</artifactId>
+    <groupId>com.github.davids13</groupId>
+    <name>where-is-my-pet :: Integration-Test</name>
+
+    <dependencies>
+        <!-- jakarta ee api specification -->
+        <dependency>
+            <groupId>jakarta.platform</groupId>
+            <artifactId>jakarta.jakartaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- jpa implementation hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core-jakarta</artifactId>
+        </dependency>
+        <!-- hibernate helper -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+        </dependency>
+
+        <!-- microprofile -->
+        <dependency>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- logging -->
+        <!-- spec slf4j-api | impl logback (it will bring both: specification slf4j & implementation logback-core) -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>where-is-my-pet-it</finalName>
+    </build>
+
+</project>
