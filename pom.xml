@@ -29,6 +29,8 @@
         <glassfish.jaxb.version>4.0.1</glassfish.jaxb.version>
         <!-- microprofile -->
         <microprofile.version>4.0.1</microprofile.version>
+        <!-- logging -->
+        <logback.version>1.4.5</logback.version>
     </properties>
 
     <dependencyManagement>
@@ -61,6 +63,14 @@
                 <version>${microprofile.version}</version>
                 <type>pom</type>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- logging -->
+            <!-- spec slf4j-api | impl logback (it will bring both: specification slf4j & implementation logback-core) -->
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
