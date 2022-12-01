@@ -7,15 +7,19 @@ import jakarta.servlet.ServletContext;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.WebApplicationException;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.UriInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Path("")
 @ApplicationScoped
 public class PetResource {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(PetResource.class);
     @Context
     private ServletContext ctx;
 
@@ -25,13 +29,19 @@ public class PetResource {
     @Context
     private UriInfo uriInfo;
 
-    @Path("pets")
     @GET
+    @Path("pets")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllPets() {
         final JsonObject json = Json.createObjectBuilder()
                 .add("name", "Hello World")
                 .build();
+
+        LOGGER.info("Where Is My Pet :: GET - All Pets");
+
+        if (json.isEmpty())
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+
         return Response.ok(json).build();
     }
 }
