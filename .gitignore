@@ -1,7 +1,10 @@
 where-is-my-pet-application/target/
+where-is-my-pet-it/target
 
 ### Postgres ###
-database/*
+database/database-volume
+database/pgadmin-config
+database/postgres-credentials.env
 
 ### Java ###
 # Compiled class file
