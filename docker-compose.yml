@@ -1,6 +1,7 @@
 version: "3.8"
 
 services:
+  # DATABASE
   database:
     container_name: postgres
     image: postgres:15rc1-alpine3.16
@@ -18,11 +19,14 @@ services:
     ports:
       - "5050:80"
     environment:
-      - PGADMIN_DEFAULT_PASSWORD="admin"
+      - PGADMIN_DEFAULT_EMAIL=abc@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
     volumes:
       - $PWD/database/pgadmin-config:/var/lib/pgadmin
     networks:
       - application
+
+  # MICROSERVICE
   application:
     container_name: microservice
     command: [ "--sslport", "8181" ]
@@ -32,10 +36,33 @@ services:
       - "1607:8181" # HTTPS listener
       - "9009:9009" # Debug port
     build: .
-    networks:
-      - application
     depends_on:
       - database
+    networks:
+      - application
+
+  # MONITORING
+  prometheus:
+    container_name: monitoring_prometheus
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - $PWD/monitoring/prometheus_config:/etc/prometheus
+    depends_on:
+      - application
+  grafana:
+    image: grafana/grafana:latest
+    container_name: monitoring_grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+      - GF_LOG_MODE=console file
+    volumes:
+      - $PWD/monitoring_grafana_storage:/var/lib/grafana
+    depends_on:
+      - prometheus
 
 networks:
   application:
