@@ -23,5 +23,9 @@ public class MicroserviceApplication extends Application {
         - terraform scripts
         - Azure vm
         - wiremock
+        - test:
+            it - rest assured
+            test containers
+        - 
      */
 }
