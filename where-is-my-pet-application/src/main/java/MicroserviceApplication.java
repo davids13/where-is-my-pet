@@ -24,8 +24,10 @@ public class MicroserviceApplication extends Application {
         - Azure vm
         - wiremock
         - test:
-            it - rest assured
-            test containers
-        - 
+            system test - rest assured
+            integration test - arquilian & test containers
+        - graphql
+        - add helpful links on readme
+        - kafka
      */
 }

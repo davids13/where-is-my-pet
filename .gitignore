@@ -2,6 +2,8 @@ where-is-my-pet-application/target/
 
 ### Postgres ###
 database/*
+database/
+*.env
 
 ### Java ###
 # Compiled class file
