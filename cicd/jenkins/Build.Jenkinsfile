@@ -5,12 +5,12 @@ pipeline {
     stages {
         stage("CI :: Build") {
             steps {
-                'sh mvn build'
+                sh 'mvn build'
             }
         }
         stage("CI :: Unit Test") {
             steps {
-                'sh mvn test'
+                sh 'mvn test'
             }
         }
         stage("Code Analysis :: Sonarqube") {
