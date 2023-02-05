@@ -1,11 +1,16 @@
 pipeline {
 
-    agent any
+    agent {
+        docker {
+            image 'maven:3.8.7-eclipse-temurin-11'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
 
     stages {
         stage("CI :: Build") {
             steps {
-                sh 'mvn build'
+                sh 'mvn build -DskipTests'
             }
         }
         stage("CI :: Unit Test") {
