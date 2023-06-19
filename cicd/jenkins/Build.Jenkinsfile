@@ -6,27 +6,32 @@ pipeline {
     }
 
     stages {
-        stage("CI :: Build") {
+        stage("CI - Build") {
             steps {
                 sh 'mvn clean package -DskipTests'
             }
         }
-        stage("CI :: Unit Test") {
+        stage("CI - Unit Test") {
             steps {
                 sh 'mvn test'
             }
         }
-        stage("Code Analysis :: Sonarqube") {
+        stage("CI - Integration Test") {
+             steps {
+                sh 'mvn test'
+             }
+        }
+        stage("Code Analysis - Sonarqube") {
             steps {
                 echo 'Initializing checking...'
             }
         }
-        stage("Deploy to Nexus") {
+        stage("Deploy artifact to Nexus") {
             steps {
                 echo 'Deployed to Nexus'
             }
         }
-        stage("Push Docker image") {
+        stage("Push Docker image to Azure Registry") {
             steps {
                 echo 'Pushed to Docker Hub'
             }

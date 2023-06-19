@@ -29,5 +29,6 @@ public class MicroserviceApplication extends Application {
         - graphql
         - add helpful links on readme
         - kafka
+        - https://www.javacodegeeks.com/2019/01/tutorial-create-verify-jwts-java.html
      */
 }

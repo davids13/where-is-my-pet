@@ -4,6 +4,9 @@ import commons.jpa.AbstractEntityModel;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+
+import java.util.stream.Stream;
 
 @Stateless
 public class GenericDAO implements IGenericDAO {
@@ -16,8 +19,8 @@ public class GenericDAO implements IGenericDAO {
         entityManager.persist(object);
     }
 
-    /*public Stream<AbstractEntityModel> getAll(final String namedQuery, final Class<?> clazz) {
-        final TypedQuery<AbstractEntityModel> query = entityManager.createNamedQuery(namedQuery, clazz);
+    public Stream<?> getAll(final String namedQuery, final Class<?> clazz) {
+        final TypedQuery<?> query = entityManager.createNamedQuery(namedQuery, clazz);
         return query.getResultStream();
-    }*/
+    }
 }

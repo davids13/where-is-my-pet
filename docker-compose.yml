@@ -9,7 +9,9 @@ services:
     env_file:
       - database/postgres-credentials.env
     volumes:
-      - $PWD/database/database-volume:/var/lib/postgresql/data
+      #- $PWD/database/database-volume:/var/lib/postgresql/data
+      - database-volume:/var/lib/postgresql/data
+      # DATABASE_URL = "postgresql://postgres:postgres@postgres:5432/petfinderdb"
     networks:
       - application
   application:
@@ -25,6 +27,11 @@ services:
       - application
     depends_on:
       - database
+    volumes:
+      - $PWD:/opt/payara/deployments
 
 networks:
   application:
+
+volumes:
+  database-volume:

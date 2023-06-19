@@ -1,5 +1,5 @@
 package entity;
 
 public enum GenderType {
-    M, F
+    M, F, O
 }
