@@ -22,7 +22,7 @@ This project is to provide a platform for owners register their lovely lost pets
 - Architectural Pattern: [Entity-Control-Boundary pattern (ECB)](https://en.wikipedia.org/wiki/Entity-control-boundary)
 - Git Branching Strategy: [Github Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 - Coding Style: [Google Java Style Guide](https://google.github.io/styleguide/javaguide.html)
-- Design Api: [API First](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#oasObject)
+- Api Implementation: [API First](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.2.md#oasObject)
 - Project Structure:
   - root/
     - cicd/
